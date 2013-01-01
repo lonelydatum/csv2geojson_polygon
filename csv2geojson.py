@@ -1,13 +1,13 @@
 import csv
 
 # Read in raw data from csv
-rawData = csv.reader(open('harrison.csv', 'rb'), dialect='excel')
+rawData = csv.reader(open('list.csv', 'rb'), dialect='excel')
 
 # the template. where data from the csv will be formatted to geojson
-
+# you will most likely have to modify the properities to match your csv file
 template = \
     ''' \
-    { "type":"Feature", "properties":{"name": "%s"}, "geometry": {"type":"Polygon", "coordinates": %s } }%s
+    { "type":"Feature", "properties":{"city": "%s", "income": "%s"}, "geometry": {"type":"Polygon", "coordinates": %s } }%s
     '''
 
 # the head of the geojson file
@@ -89,7 +89,7 @@ for row in list:
         comma = ''
         if indexNow<len(list)-1: 
             comma = ','
-        output += template % (list[indexNow][0], polygonList, comma)
+        output += template % (list[indexNow][0], list[indexNow][1], polygonList, comma)
     else:
         polygon += ','
     
@@ -105,6 +105,6 @@ output += \
     '''
 
 # opens an geoJSON file to write the output to
-outFileHandle = open("harrison.js", "w")
+outFileHandle = open("list.geojson", "w")
 outFileHandle.write(output)
 outFileHandle.close()

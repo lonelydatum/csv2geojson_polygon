@@ -1,0 +1,6 @@
+var statesData = {"type" : "FeatureCollection", "features" : [ 
+     { "type":"Feature", "properties":{"city": "city1", "income": "60000"}, "geometry": {"type":"Polygon", "coordinates": [[[60000, -84.79001661],[60000, -84.967938],[60000, -84.960117]]] } },
+         { "type":"Feature", "properties":{"city": "city2", "income": "70000"}, "geometry": {"type":"Polygon", "coordinates": [[[70000, -84.851813],[70000, -84.851813],[70000, -84.848502],[70000, -84.72889],[70000, -84.609861]]] } }
+         ]
+}
+    
